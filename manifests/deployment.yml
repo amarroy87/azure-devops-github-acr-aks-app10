@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: amarroyazuredevopsgithubacraksapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: amarroyazuredevopsgithubacraksapp
+  template:
+    metadata:
+      labels:
+        app: amarroyazuredevopsgithubacraksapp 
+    spec:
+      containers:
+        - name: amarroyazuredevopsgithubacraksapp 
+          image: aksdevopsacr26.azurecr.io/amarroyazuredevopsgithubacraksapp
+          ports:
+          - containerPort: 80
