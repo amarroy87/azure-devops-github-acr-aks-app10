@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: '706938d6-5c74-434b-8d9f-60e775de3f23'
   imageRepository: 'custom1aksnginxapp1'
   containerRegistry: 'aksdevopsacr26.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/kube-manifests/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
@@ -38,8 +38,8 @@ stages:
         tags: |
           $(tag)
 ## Publish Artifacts pipeline code in addition to Build and Push          
-    - bash: echo Contents in System Default Working Directory; ls -R $(System.DefaultWorkingDirectory/kube-manifests)        
-    - bash: echo Before copying Contents in Build Artifact Directory; ls -R $(Build.ArtifactStagingDirectory/kube-manifests)        
+    - bash: echo Contents in System Default Working Directory; ls -R $(System.DefaultWorkingDirectory)        
+    - bash: echo Before copying Contents in Build Artifact Directory; ls -R $(Build.ArtifactStagingDirectory)        
     # Task-2: Copy files (Copy files from a source folder to target folder)
     # Source Directory: $(System.DefaultWorkingDirectory)/kube-manifests
     # Target Directory: $(Build.ArtifactStagingDirectory)
