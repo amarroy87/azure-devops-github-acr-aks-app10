@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: '74eec296-4ce9-4c5c-8bbb-02cbd959a822'
   imageRepository: 'testacr'
   containerRegistry: 'aksdevopsacr26.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/docker-manifests/Dockerfile'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
@@ -39,7 +39,7 @@ stages:
           $(tag)
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(Build.SourcesDirectory)/kube-manifests'
+        SourceFolder: '$(Build.SourcesDirectory)/docker-manifests'
         Contents: '**'
         TargetFolder: '$(Build.SourcesDirectory)'
         OverWrite: true
